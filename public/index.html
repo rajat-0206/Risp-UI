@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/home.css">
+    <meta name="description" content="A personal AI assistant for you help">
+    <meta name="title" content="RISP">
+    <link rel="shortcut icon" href="images/logo.png" type="image/png">
+    <link rel="icon" href="images/logo.png">
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RISP | Personal AI assistant</title>
+</head>
+
+<body>
+    <div class="popup-box chat-popup" id="qnimate">
+        <div class="popup-head">
+            <div class="popup-head-left pull-left"><img
+                    src="images/logo.png"
+                    alt="iamgurdeeposahan">Risp AI</div>
+            <div class="popup-head-right pull-right">
+                <div class="btn-group">
+                    <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
+                        <i class="glyphicon glyphicon-cog"></i> </button>
+                    <ul role="menu" class="dropdown-menu pull-right">
+                        <li><a href="#">Media</a></li>
+                        <li><a href="#">Block</a></li>
+                        <li><a href="#">Clear Chat</a></li>
+                        <li><a href="#">Email Chat</a></li>
+                    </ul>
+                </div>
+
+                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i
+                        class="glyphicon glyphicon-off"></i></button>
+            </div>
+        </div>
+        <div class="popup-messages">
+
+            <div class="direct-chat-messages" id="chat">
+            </div>
+        </div>
+        <div class="popup-messages-footer">
+            <div class="msgtext" style="display: flex;">
+                <button class="bg_none"><i class="fa fa-microphone"></i></button>
+                <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40"
+                    name="message"></textarea>
+                <button class="bg_none"><i class="sendbtn glyphicon glyphicon-send"></i> </button>
+                <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/home.js"></script>
+
+</html>

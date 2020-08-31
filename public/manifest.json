@@ -1,0 +1,22 @@
+{
+    "name" : "RISP - Personal Assistant",
+    "short_name" : "Risp",
+    "lang": "en-US",
+    "categories": ["education"],
+    "icons": [
+      {
+        "src" : "images/logo.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      }
+     
+    ],
+    "description": "Risp is a AI based personal assistant for your help.",
+    "start_url" : "/",
+    "background_color" : "#3f9684",
+    "display" : "standalone",
+    "orientation" : "portrait-primary",
+    "scope" : "/",
+    "theme_color" : "#3f9684"
+    
+}
