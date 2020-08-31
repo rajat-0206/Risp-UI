@@ -4,12 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/home.css">
     <link rel="manifest" href="/manifest.json">
+    <link rel="stylesheet" href="css/w3css.css">
     <meta name="description" content="A personal AI assistant for you help">
     <meta name="title" content="RISP">
+    <meta property="og:title" content="RISP">
+    <meta property="og:type" content="Artificial Intelligence">
+    <meta property="og:url" content="https://askrisp.web.app/">
+    <meta property="og:description" content="A personal AI assistant for you help">
+    <meta property="og:image" content="images/logo.png">
+    <meta name="favicon" content="images/logo.png">
+    <meta name="twitter:card" content="images/logo.png">
+    <meta name="linkedin:card" content="images/logo.png">
+    <meta name="theme-color" content="#3f9684">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="images/logo.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/logo.png">
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
     <link rel="icon" href="images/logo.png">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -17,12 +30,16 @@
     <title>RISP | Personal AI assistant</title>
 </head>
 
-<body>
+<body style='background-color:"#3f9684"'>
+    <div class="speechbox w3-card w3-display-middle w3-round w3-padding w3-black" style="display:none;" id="voicebox">
+        <span>
+            <img src="images/speech_recog.gif" alt="Recognising" title="Speech">
+        </span>
+        <span class="w3-text-white text w3-center" id="instruction">Recognising</span>
+    </div>
     <div class="popup-box chat-popup" id="qnimate">
         <div class="popup-head">
-            <div class="popup-head-left pull-left"><img
-                    src="images/logo.png"
-                    alt="iamgurdeeposahan">Risp AI</div>
+            <div class="popup-head-left pull-left"><img src="images/logo.png" alt="iamgurdeeposahan">Risp AI</div>
             <div class="popup-head-right pull-right">
                 <div class="btn-group">
                     <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
@@ -42,12 +59,13 @@
         <div class="popup-messages">
 
             <div class="direct-chat-messages" id="chat">
+                </div>
             </div>
             <div id="abcd"></div>
         </div>
         <div class="popup-messages-footer">
             <div class="msgtext" style="display: flex;">
-                <button class="bg_none"><i class="fa fa-microphone"></i></button>
+                <button class="bg_none" id="start-btn"><i class="fa fa-microphone"></i></button>
                 <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40"
                     name="message"></textarea>
                 <button class="bg_none"><a href="#abcd"><i class="sendbtn glyphicon glyphicon-send"></i></a></button>
@@ -59,13 +77,15 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/home.js"></script>
+<script src="js/speech.js"></script>
 <script>
     if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function() {
-          navigator.serviceWorker.register('/sw.js').then(function(registration) {
-          }, function(err) {
-          });
+        window.addEventListener('load', function () {
+            navigator.serviceWorker.register('/sw.js').then(function (registration) {
+            }, function (err) {
+            });
         });
-      }
+    }  
 </script>
+
 </html>

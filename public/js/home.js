@@ -30,7 +30,6 @@ function bot(msg) { /*change*/
     "</div>" +
     "</div>";
   $('#chat').append($content);
-  window.location.href = "#abcd";
 }
 
 function user(msg) { /*change*/
@@ -46,23 +45,62 @@ function user(msg) { /*change*/
   t = document.getElementById("chat");
   t.scrollTop = t.scrollHeight;
 }
+
+
+function textToAudio(msg) {
+
+  let speech = new SpeechSynthesisUtterance();
+  speech.lang = "en-US";
+
+  speech.text = msg;
+  speech.volume = 2;
+  speech.rate = 1;
+  speech.pitch = 1;
+
+  window.speechSynthesis.speak(speech);
+}
+
 window.onload = function () {
   bot("Hii I am Risp. Your Personal AI assistant");
+  textToAudio("Hii I am Risp. Your Personal AI assistant");
+}
+
+function thinking() {
+  var $content = '<div class="direct-chat-msg" id="temploader">' +
+    '<img alt="iamgurdeeposahan" src="images/logo.png" class="direct-chat-img">' +
+    '<div class="direct-chat-text">' +
+    '<div class="animation">' +
+    '<div id="loader21" class="dot"></div>' +
+    '<div id="loader22" class="dot"></div>' +
+    '<div id="loader23" class="dot"></div>' +
+    '<div id="loader24" class="dot"></div>' +
+    '<div class="w3-small w3-text-black w3display-middle" id="loadingtext"></div>'+
+    ' </div></div> </div>';
+  $('#chat').append($content);
 }
 
 
 $('.sendbtn').click(function () {
   query = $('#status_message').val();
+  if (query == "") return;
   document.getElementById('status_message').value = "";
   user(query);
   var url = 'https://chatbot.pythonanywhere.com/askrisp?query=' + query;
   fetch(url, requestOptions)
-  .then(response => response.text())
-  .then(result => {
-    result = result.slice(1,);
-    result = result.replace('"',"");
-    bot(result);
+    .then(response => response.text())
+    .then(result => {
+      result = result.slice(1,);
+      result = result.replace('"', "");
+      $("#temploader").remove();
+      bot(result);
+      textToAudio(result);
     })
-  .catch(error => console.log('error', error));
-  
+    .catch(error => console.log('error', error));
+    setTimeout(() => {
+      thinking();
+    }, 300);
+    window.location.href = "#abcd";
+    setTimeout(() => {
+      $("#loadingtext").html("This is taking long...");
+    },12000);
 });
