@@ -1,4 +1,4 @@
-var CACHE_NAME = 'rajat-cache-v1';
+var CACHE_NAME = 'risp-cache-v1';
 var urlsToCache = [
   '/',
   

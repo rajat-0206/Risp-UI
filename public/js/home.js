@@ -1,40 +1,22 @@
-async function getData(url) {
-  const response = await fetch(url, {
-    method: 'GET',
-    mode: 'no-cors',
-    cache: 'no-cache',
-    credentials: 'same-origin',
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: 'follow',
-    referrerPolicy: 'no-referrer',
-  });
-  
-   console.log(response.text());
-   return("waiting");
-}
-
 var requestOptions = {
   method: 'GET',
   redirect: 'follow',
-  mode: 'no-cors',
+  mode: 'cors',
+  cache: 'no-cache',
   credentials: 'same-origin',
   headers: {
     'Content-Type': 'application/x-www-form-urlencoded',
   },
 };
-
-
-function gettime(){
+function gettime() {
   var now = new Date();
-now.setHours(now.getHours());
-var isPM = now.getHours() >= 12;
-var isMidday = now.getHours() == 12;
-var time = [now.getHours() - (isPM && !isMidday ? 12 : 0), 
-            now.getMinutes(), 
-           ].join(':') +
-           (isPM ? ' pm' : 'am');
+  now.setHours(now.getHours());
+  var isPM = now.getHours() >= 12;
+  var isMidday = now.getHours() == 12;
+  var time = [now.getHours() - (isPM && !isMidday ? 12 : 0),
+  now.getMinutes(),
+  ].join(':') +
+    (isPM ? ' pm' : 'am');
   return time;
 }
 
@@ -48,6 +30,7 @@ function bot(msg) { /*change*/
     "</div>" +
     "</div>";
   $('#chat').append($content);
+  window.location.href = "#abcd";
 }
 
 function user(msg) { /*change*/
@@ -57,35 +40,29 @@ function user(msg) { /*change*/
     '<span class="direct-sender-timestamp pull-left">' + gettime() +
     '</span>' +
     "</div>" +
-    '<img alt="User" src="images/user.jpg" class="direct-sender-img">'+
+    '<img alt="User" src="images/user.jpg" class="direct-sender-img">' +
     "</div>";
   $('#chat').append($content);
+  t = document.getElementById("chat");
+  t.scrollTop = t.scrollHeight;
 }
-  window.onload = function () {
-    bot("Hii I am Risp. Your Personal AI assistant");
-  }
+window.onload = function () {
+  bot("Hii I am Risp. Your Personal AI assistant");
+}
 
 
-  $('.sendbtn').click(function () {
-    query = $('#status_message').val();
-    document.getElementById('status_message').value = "";
-    user(query);
-    var url = 'https://chatbot.pythonanywhere.com/askrisp?query='+query;
-    // getData(url).then(data=>{
-    //   console.log(data);
-    //   bot(data);
-    // });
-  //   fetch("https://chatbot.pythonanywhere.com/askrisp?query=bye", requestOptions)
-  // .then(response => response.text())
-  // .then(result => console.log(result))
-  // .catch(error => console.log('error', error));
-  var settings = {
-    "url": "https://chatbot.pythonanywhere.com/askrisp?query=bye",
-    "method": "GET",
-    "timeout": 0,
-  };
+$('.sendbtn').click(function () {
+  query = $('#status_message').val();
+  document.getElementById('status_message').value = "";
+  user(query);
+  var url = 'https://chatbot.pythonanywhere.com/askrisp?query=' + query;
+  fetch(url, requestOptions)
+  .then(response => response.text())
+  .then(result => {
+    result = result.slice(1,);
+    result = result.replace('"',"");
+    bot(result);
+    })
+  .catch(error => console.log('error', error));
   
-  $.ajax(settings).done(function (response) {
-    console.log(response);
-  });
-  });
+});

@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="css/home.css">
+    <link rel="manifest" href="/manifest.json">
     <meta name="description" content="A personal AI assistant for you help">
     <meta name="title" content="RISP">
     <link rel="shortcut icon" href="images/logo.png" type="image/png">
@@ -42,13 +43,14 @@
 
             <div class="direct-chat-messages" id="chat">
             </div>
+            <div id="abcd"></div>
         </div>
         <div class="popup-messages-footer">
             <div class="msgtext" style="display: flex;">
                 <button class="bg_none"><i class="fa fa-microphone"></i></button>
                 <textarea id="status_message" placeholder="Type a message..." rows="10" cols="40"
                     name="message"></textarea>
-                <button class="bg_none"><i class="sendbtn glyphicon glyphicon-send"></i> </button>
+                <button class="bg_none"><a href="#abcd"><i class="sendbtn glyphicon glyphicon-send"></i></a></button>
                 <button class="bg_none pull-right"><i class="glyphicon glyphicon-thumbs-up"></i> </button>
             </div>
         </div>
@@ -57,5 +59,13 @@
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 <script src="js/home.js"></script>
-
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+          }, function(err) {
+          });
+        });
+      }
+</script>
 </html>
