@@ -85,6 +85,7 @@ $('.sendbtn').click(function () {
   if (query == "") return;
   document.getElementById('status_message').value = "";
   user(query);
+  window.location.href = "#abcd";
   var url = 'https://chatbot.pythonanywhere.com/askrisp?query=' + query;
   fetch(url, requestOptions)
     .then(response => response.text())
@@ -94,12 +95,13 @@ $('.sendbtn').click(function () {
       $("#temploader").remove();
       bot(result);
       textToAudio(result);
+      window.location.href = "#abcd";
     })
     .catch(error => console.log('error', error));
     setTimeout(() => {
       thinking();
+      window.location.href = "#abcd";
     }, 300);
-    window.location.href = "#abcd";
     setTimeout(() => {
       $("#loadingtext").html("This is taking long...");
     },12000);

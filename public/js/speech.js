@@ -27,7 +27,7 @@ recognition.onresult = function(event) {
 recognition.onstart = function() { 
     box.show();
     Content = '';
-    instructions.text('Listning..');
+    instructions.text('Listening..');
   }
   
   recognition.onspeechend = function() {
