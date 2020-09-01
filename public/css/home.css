@@ -167,9 +167,11 @@ body
     background: transparent none repeat scroll 0 0;
     border: 1px solid #636364;
     border-radius: 50%;
-    font-size: 14px;
-    height: 30px;
-    width: 30px;
+    font-size: 24px;
+    height: 40px;
+    width: 40px;
+    transform: translateY(-5px);
+    outline:none;
 }
 .popup-head-right .btn-group .dropdown-menu {
     border: medium none;
@@ -177,8 +179,8 @@ body
 	padding: 0;
 }
 .popup-head-right .btn-group .dropdown-menu li a {
-    font-size: 12px;
-    padding: 3px 10px;
+    font-size: 24px;
+    padding: 10px 10px;
 	color: #303030;
 }
 
@@ -549,17 +551,20 @@ body
     border-radius: 3px
   }
   .button {
-  cursor: pointer
+  cursor: pointer;
+  outline:none;
   }
   .button-default {
     background-color: rgb(248, 248, 248);
     border: 1px solid rgba(204, 204, 204, 0.5);
     color: #5D5D5D;
+    outline:none;
   }
   .button-danger {
     background-color:teal;
     border: 1px solid teal;
-    color: #f5f5f5
+    color: #f5f5f5;
+    outline:none;
   }
   .link {
   padding: 5px 10px;

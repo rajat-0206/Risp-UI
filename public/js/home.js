@@ -2,9 +2,9 @@
 async function getAllData() {
   var result = idb.select("Messages", function (isSelected, responseData) {
     if (isSelected) {
+      textToAudio("Loading Previous Message");
       $("#chat").empty();
       for(i in responseData){
-        console.log(responseData[i]['id']+" "+responseData[i]['message']+" "+responseData[i]['time']);
         if(responseData[i]['id']=="bot"){
           bot(responseData[i]['message'],samay=responseData[i]['time']);
         }
@@ -12,6 +12,7 @@ async function getAllData() {
           user(responseData[i]['message'],samay=responseData[i]['time'],flag="no");
         }
       }
+      bot("Hii I am Risp. Your Personal AI assistant");
     }
     else {
       return false;
@@ -35,6 +36,7 @@ async function deleteAllData() {
   $('#chat').empty();
   var result = idb.delete("Messages", function (isDeleted, responseText) {
     if (isDeleted) {
+      textToAudio("Chat history cleared");
         return;
 
     }
@@ -112,7 +114,6 @@ function bot(msg,samay="") { /*change*/
   if(samay==""){
     samay = gettime();
   }
-  console.log(samay);
   var $content = "<div class='direct-chat-msg'>" +
     '<img alt="iamgurdeeposahan" src="images/logo.png" class="direct-chat-img">' +
     '<div class="direct-chat-text">' +
@@ -128,7 +129,6 @@ function user(msg,samay="",flag="yes") { /*change*/
   if(samay==""){
     samay= gettime();
   }
-  console.log(samay);
   var $content = "<div class='direct-sender'>" +
     '<div class="direct-sender-text">' +
     msg +
