@@ -45,15 +45,14 @@
                     <button class="chat-header-button" data-toggle="dropdown" type="button" aria-expanded="false">
                         <i class="glyphicon glyphicon-cog"></i> </button>
                     <ul role="menu" class="dropdown-menu pull-right">
-                        <li><a href="#">Media</a></li>
-                        <li><a href="#">Block</a></li>
-                        <li><a href="#">Clear Chat</a></li>
-                        <li><a href="#">Email Chat</a></li>
+                        <li><a href="#" id="loadprev">Get Previous Messages</a></li>
+                        <li><a href="#">Set my name</a></li>
+                        <li><a href="#" id="deleteall">Clear all chats</a></li>
                     </ul>
                 </div>
 
-                <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i
-                        class="glyphicon glyphicon-off"></i></button>
+                <!-- <button data-widget="remove" id="removeClass" class="chat-header-button pull-right" type="button"><i
+                        class="glyphicon glyphicon-off"></i></button> -->
             </div>
         </div>
         <div class="popup-messages">
@@ -78,16 +77,17 @@
 </body>
 <script src="js/jquery-1.11.1.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
+<script src="js/indexeddb.js"></script>
 <script src="js/home.js"></script>
 <script src="js/speech.js"></script>
 <script>
-    if ('serviceWorker' in navigator) {
+   /* if ('serviceWorker' in navigator) {
         window.addEventListener('load', function () {
             navigator.serviceWorker.register('/sw.js').then(function (registration) {
             }, function (err) {
             });
         });
-    }  
+    }  */
 </script>
 
 </html>
