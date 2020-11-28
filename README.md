@@ -29,9 +29,8 @@
 -  Firebase CLI for node is needed. Download using command -
   ```bash
   npm install -g firebase-tools
-    ```
-firebase serve
-```
+  ```
+
 ## Testing
 From the root of the product run the following commands -
 
